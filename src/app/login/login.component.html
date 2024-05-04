@@ -1,0 +1,37 @@
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="danger">
+      
+      <ion-title class="ion-text-center">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center" style="margin-top: 50px;">
+    <img src="assets/images/logo.png?alt=media" alt="Logo" >
+
+  </div>
+    
+  <div style="margin-top: 50px;">
+    <ion-item lines="none" color="light" class="rowStyle">
+      <ion-label position="floating">Enter your Phone</ion-label>
+      <ion-input type="text" [disabled]="isOtpEnabled" placeholder="your phone" maxlength="10" required [(ngModel)]="phone">
+        <span slot="start" aria-hidden="true">+91</span>
+      
+      </ion-input>
+    </ion-item>
+    <ion-item lines="none" color="light" class="rowStyle" *ngIf="isOtpEnabled">
+      <ion-label position="floating">OTP</ion-label>
+      <ion-input type="number" placeholder="Enter OTP" required [(ngModel)]="password"></ion-input>
+    </ion-item>
+    
+    <ion-button color="danger" *ngIf="!isOtpEnabled" (click)="sendOtp()" expand="block">Get Otp</ion-button>
+    <ion-button color="danger" *ngIf="isOtpEnabled" (click)="verifyCode(password)" expand="block">Login with OTP</ion-button>
+
+  </div>
+    <div id="recaptcha-container"></div>
+  
+</ion-content>
+
+</div>

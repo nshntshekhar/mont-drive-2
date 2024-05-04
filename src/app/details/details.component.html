@@ -1,0 +1,174 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center" style="margin-left:-60px;">{{data?.details.Name}} SERIES</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <img src="assets/images/{{data?.details.imgUrl}}?alt=media" alt="Image"/>
+
+    <h3 class="ion-text-center">{{data?.details.Name}} SERIES</h3>
+    <br>
+    <div style="background-color: brown; color: white; padding: 5px;">
+      <h3 class="ion-text-center">TECHNICAL SPECIFICATIONS</h3>
+      
+    </div>
+    <div class="border">
+      <ion-row>
+        <ion-col>Voltage:</ion-col>
+        <ion-col class="ion-text-center">{{data?.details.Voltage}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Pole:</ion-col>
+        <ion-col class="ion-text-center">{{data?.details.Pole}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Duty Cycle:</ion-col>
+        <ion-col class="ion-text-center">{{data?.details.DutyCycle}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> Brake Voltage:</ion-col>
+        <ion-col class="ion-text-center">{{data?.details. BrakeVoltage}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Max. Static Load:</ion-col>
+        <ion-col class="ion-text-center">{{data?.details.MaxStaticLoad}}</ion-col>
+      </ion-row>
+    </div>
+
+    <img src="assets/images/{{data?.details.imgDetails}}?alt=media" class="mt-10" alt="Image"/>
+
+    <div class="mt-10">
+      <ion-select placeholder="Choose Product Model" (ionChange)="changeModel($event)">
+        <div slot="label">Choose Model <ion-text color="danger"></ion-text></div>
+        <ion-select-option *ngFor="let item of data?.details.data" selected="item[0]" value="{{item.Model}}">
+          {{item.Model}}
+        </ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="border" *ngIf="selectedModel">
+      <ion-row>
+        <ion-col>Model No:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.Model}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Duty Load(kg):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.DutyLoad}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Passenger Capacity:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.PassengerCapacity}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Speed (m/s):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.Speed}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Sheave Dia. (mm):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.SheaveDia}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Ratio of Roping:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.RatioofRoping}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>No. of Ropes:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.NoofRopes}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Rope Dia. (mm):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.RopeDia}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Rated Current (A):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.RatedCurrent}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Power (kW):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.Power}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>RPM:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.RPM}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Torque (Nm):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.Torque}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Rated Frequency (Hz):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.RatedFrequency}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>IP Protection:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?. IPProtection}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Start / Hr:</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.StartHr}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Machine Weight (kg) (Approx.):</ion-col>
+        <ion-col class="ion-text-center">{{selectedModel?.MachineWeight}}</ion-col>
+      </ion-row>
+    </div>
+
+    <!-- <ion-card>
+      <ion-card-header>
+        Contact Us
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Your Name" labelPlacement="stacked" placeholder="Enter Your Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Your Email" labelPlacement="stacked" placeholder="Enter Your Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea label="Reason" labelPlacement="stacked" placeholder="Enter your reason to contact"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card> -->
+
+    <ion-button expand="block" (click)="setOpen(true)">Submit a Request</ion-button>
+  <ion-modal [isOpen]="isModalOpen" [canDismiss]="true">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Your Request</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input label="Your Name" labelPlacement="stacked" [(ngModel)]="name" placeholder="Enter Your Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Your Phone" labelPlacement="stacked" [(ngModel)]="email" placeholder="Enter Your Phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea label="Query" labelPlacement="stacked" [(ngModel)]="reason" placeholder="Enter your message to contact"></ion-textarea>
+        </ion-item>
+
+    <ion-button expand="block" (click)="submitRequest()">Submit</ion-button>
+
+        
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-alert
+  [isOpen]="isAlertOpen"
+  header="Message"
+  subHeader=""
+  message={{message}}
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert>
+  </ion-content>
+  </div>

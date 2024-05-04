@@ -1,0 +1,1 @@
+export const firebaseUrl = "https://firebasestorage.googleapis.com/v0/b/montdrive-6897b.appspot.com/o/";
