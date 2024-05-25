@@ -19,25 +19,25 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home', component: HomeComponent//, canActivate:[AuthGuardService],
+    path: 'home', component: HomeComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'aboutus', component: AboutusComponent//, canActivate:[AuthGuardService],
+    path: 'aboutus', component: AboutusComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'our-products', component: ProductsComponent//, canActivate:[AuthGuardService],
+    path: 'our-products', component: ProductsComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'product-selector', component: ProductSelectorComponent//, canActivate:[AuthGuardService],
+    path: 'product-selector', component: ProductSelectorComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'gallery', component: GalleryComponent//, canActivate:[AuthGuardService],
+    path: 'gallery', component: GalleryComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'downloads', component: DownloadsComponent//, canActivate:[AuthGuardService],
+    path: 'downloads', component: DownloadsComponent, canActivate:[AuthGuardService],
   },
   {
-    path: 'contact-us', component: ContactUsComponent//, canActivate:[AuthGuardService],
+    path: 'contact-us', component: ContactUsComponent, canActivate:[AuthGuardService],
   },
   {
     path: 'register', component: SignupComponent
@@ -46,7 +46,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'details/:id', component: DetailsComponent//, canActivate:[AuthGuardService],
+    path: 'details/:id', component: DetailsComponent, canActivate:[AuthGuardService],
   },
   {
     path: 'folder/:id',

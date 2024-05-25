@@ -7,11 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
-
+  isLoogedIn: boolean = false;
   constructor(private route: Router) { }
 
   ngOnInit() {
-    
+    var user = localStorage.getItem("loggedInUser");
+    if(user !=null){
+      this.isLoogedIn = true;
+    }
   }
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
@@ -19,8 +22,8 @@ export class HeaderComponent  implements OnInit {
     { title: 'Our Products', url: '/our-products', icon: 'heart' },
     // { title: 'Product Selector', url: '/product-selector', icon: 'archive' },
     // { title: 'Gallery', url: '/gallery', icon: 'trash' },
-    { title: 'Blog', url: '/downloads', icon: 'newspaper' },
-    { title: 'Contact Us', url: '/contact-us', icon: 'warning' },
+    // { title: 'Blog', url: '/downloads', icon: 'newspaper' },
+    // { title: 'Contact Us', url: '/contact-us', icon: 'warning' },
   ];
 
   logout(){

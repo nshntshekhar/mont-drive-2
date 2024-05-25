@@ -86,6 +86,7 @@ export class LoginComponent  implements OnInit {
         this.router.navigate(["/"]);
       }
     } catch (error) {
+      alert("Otp didn't match")
       console.error('Error verifying code', error);
     }
   }
