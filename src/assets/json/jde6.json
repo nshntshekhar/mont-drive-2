@@ -154,6 +154,24 @@
                     "IPProtection": "IP41",
                     "StartHr": "180",
                     "MachineWeight": "155"
+                },
+                {
+                    "Model": "JDE 24 P 0606 A-190",
+                    "DutyLoad": "408",
+                    "PassengerCapacity": "6",
+                    "Speed": "1.00",
+                    "SheaveDia": "190",
+                    "RatioofRoping": "2",
+                    "NoofRopes": "4",
+                    "RopeDia": "8",
+                    "RatedCurrent": "10.0",
+                    "Power": "4.4",
+                    "RPM": "191",
+                    "Torque": "220",
+                    "RatedFrequency": "38.2",
+                    "IPProtection": "IP41",
+                    "StartHr": "180",
+                    "MachineWeight": "155"
                 }
             ]
         }
